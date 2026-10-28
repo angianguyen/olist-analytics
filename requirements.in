@@ -1,0 +1,13 @@
+duckdb
+psycopg[binary]
+python-dotenv
+kaggle
+pytest
+ruff
+yamllint
+pre-commit
+pip-audit
+pandas, pyarrow
+dlt[parquet]
+dbt-duckdb
+sqlfluff, sqlfluff-templater-dbt

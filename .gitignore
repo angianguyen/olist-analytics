@@ -1,0 +1,47 @@
+# Bí mật: chặn file biến môi trường vì chúng có thể chứa khóa và mật khẩu.
+.env
+# Bí mật: chặn mọi biến thể môi trường cục bộ vì chúng có thể chứa thông tin xác thực ngoại trừ biến example 
+.env.*
+!.env.example
+# Bí mật: chặn khóa riêng tư vì commit chúng làm lộ quyền truy cập.
+*.pem
+# Bí mật: chặn khóa SSH vì chúng là thông tin xác thực nhạy cảm.
+*.key
+landing/
+warehouse/ 
+published/
+*.duckdb
+*.duckdb.wal
+# Dữ liệu: chặn dữ liệu tải về vì file lớn và dữ liệu nguồn không nên commit.
+data/
+# Dữ liệu: chặn dữ liệu thô vì có thể chứa dữ liệu nhạy cảm và tái tạo được từ nguồn.
+raw/
+# Dữ liệu: chặn dữ liệu đã xử lý vì đây là sản phẩm sinh ra, không phải mã nguồn.
+processed/
+# Dữ liệu: chặn các file bảng cục bộ vì chúng thường lớn và thay đổi theo lần chạy.
+*.parquet
+
+
+# Môi trường: chặn virtual environment vì phụ thuộc vào máy và hệ điều hành cục bộ.
+.venv/
+# Môi trường: chặn cache bytecode vì Python tự tạo lại được.
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+# dbt: chặn thư mục build vì dbt tái tạo được từ models và cấu hình.
+dbt/target/
+# dbt: chặn package đã cài vì dbt tải lại được từ packages.yml.
+dbt/dbt_packages/
+# dbt: chặn log dbt vì là đầu ra chạy cục bộ và có thể chứa thông tin môi trường.
+dbt/logs/
+# dbt: chặn manifest và catalog sinh ra vì chúng là artifact của mỗi lần chạy.
+dbt/**/target/*.json
+
+# Log: chặn log ứng dụng vì chúng là file sinh ra, có thể lớn và chứa dữ liệu vận hành.
+*.log
+# Log: chặn thư mục log cục bộ vì nội dung chỉ phục vụ gỡ lỗi trên máy.
+logs/
+# Log: chặn log kiểm thử vì kết quả có thể tạo lại bằng cách chạy test.
+pytest-*.xml

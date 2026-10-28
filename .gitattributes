@@ -1,0 +1,6 @@
+# Chuẩn hóa script shell để chạy nhất quán trên mọi hệ điều hành.
+*.sh text eol=lf
+# Chuẩn hóa SQL để diff và công cụ dbt không bị nhiễu bởi CRLF.
+*.sql text eol=lf
+*text=auto 
+text eol=lf
